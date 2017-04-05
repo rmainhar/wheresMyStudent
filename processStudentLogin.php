@@ -16,11 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//Check it is coming from a form
 	$currentLocation = $_POST["currentLocation"];
 	$destinationLocation = $_POST["destinationLocation"];
 	$postButton = $_POST["givePass"];
-	//$timeStamp = date('m-d H:i:s'); 
-    
+    $passError = ("Please enter a Valid password");
+	
 	if (empty($password)){
-        die("Please enter a Valdation code");
-	}   	
+        die($passError);
+	}   
+if ($password == "123")	
+{
 	//Open a new connection to the MySQL server
 	//see https://www.sanwebe.com/2013/03/basic-php-mysqli-usage for more info
 	$mysqli = new mysqli($mysql_host, $mysql_username, $mysql_password, $mysql_database);
@@ -35,9 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {//Check it is coming from a form
 	$statement->bind_param('ssss', $firstName, $lastName, $currentLocation, $destinationLocation); //bind value
 	 if($statement->execute()){
 	//print output text
-	echo nl2br("Hello ". $firstName ." ". $lastName . "! You are headed to ". $destinationLocation.  "\r\nYou have 8 minutes to return to ". $currentLocation, false);
+	echo nl2br("Hello ". $firstName ." ". $lastName . "! You are headed to ". $destinationLocation.  "\r\nYou have 8 minutes to return to ". $currentLocation . "\r\n", false);
 	 }else{
 		 print $mysqli->error; //show mysql error if any 
 	 }
+}
+else{ 
+die($passError);
+}	
 }			
 ?>
