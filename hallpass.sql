@@ -28,10 +28,10 @@ CREATE DATABASE hallpass;
 --
 USE hallpass;
 CREATE TABLE `studentpass` (
-  `firstName` varchar(15) NOT NULL,
-  `lastName` varchar(20) NOT NULL,
-  `currentLocation` varchar(10) NOT NULL,
-  `destinationLocation` varchar(10) NOT NULL,
+  `firstName` varchar(128) NOT NULL,
+  `lastName` varchar(128) NOT NULL,
+  `currentLocation` varchar(128) NOT NULL,
+  `destinationLocation` varchar(128) NOT NULL,
   `timeStamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
