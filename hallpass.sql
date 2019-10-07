@@ -16,6 +16,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+CREATE DATABASE hallpass;
 --
 -- Database: `hallpass`
 --
@@ -25,7 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `studentpass`
 --
-
+USE hallpass;
 CREATE TABLE `studentpass` (
   `firstName` varchar(15) NOT NULL,
   `lastName` varchar(20) NOT NULL,
